@@ -1,0 +1,31 @@
+.color-picker {
+    position: absolute;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.option {
+    width: 140px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.option-image {
+    width: 22px;
+    margin: 0;
+    rotate: 90deg;
+    margin-right: 30px;
+}
+.option-text {
+    margin: 0;
+}
+.w150px {
+    width: 150px;
+}
+  
