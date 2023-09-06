@@ -9,7 +9,7 @@ nav {
 .drop-down {
     width: 40px;
     height: 40px;
-    background-image: url("../../../assets/icons/icons8-menú-128.png");
+    background-image: url("../../../assets/icons/burguerMenu.png");
     background-size: cover;
     filter: brightness(90%);
     z-index: 10;
