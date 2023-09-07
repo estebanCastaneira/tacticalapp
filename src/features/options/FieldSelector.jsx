@@ -2,9 +2,9 @@ import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { setField } from "../../redux/teamsSlice";
-import field1 from "../../assets/img/pitch1.png";
-import field2 from "../../assets/img/pitch2.png";
-import field3 from "../../assets/img/pitch3.png";
+import field1 from "../../assets/img/pitch1.webp";
+import field2 from "../../assets/img/pitch2.webp";
+import field3 from "../../assets/img/pitch3.webp";
 function FieldSelector() {
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState({
