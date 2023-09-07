@@ -23,27 +23,27 @@
     background-size: contain;
 }
 .field-one {
-    background-image: url("../../../assets/img/pitch1.png");
+    background-image: url("../../../assets/img/pitch1.webp");
 }
 .field-two {
-    background-image: url("../../../assets/img/pitch2.png");
+    background-image: url("../../../assets/img/pitch2.webp");
 }
 .field-three {
-    background-image: url("../../../assets/img/pitch3.png");
+    background-image: url("../../../assets/img/pitch3.webp");
 }
 
 .bench {
     height: 444px;
     width: 120px;
     margin-left: 50px;
-    background-image: url("../../../assets/img/bench2.png");
+    background-image: url("../../../assets/img/bench2.webp");
     background-repeat: no-repeat;
     background-size: contain;
     display: grid;
     grid-template-columns: repeat(2, 70px);
 }
 .bench-local {
-    background-image: url("../../../assets/img/bench1.png");
+    background-image: url("../../../assets/img/bench1.webp");
     margin-left: 0;
     margin-right: 50px;
 }
