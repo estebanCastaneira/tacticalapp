@@ -15,6 +15,7 @@ function Player({ player, color, team }) {
   const handleOnStop = (e, data) => {
     const x = Math.round(data.lastX);
     const y = Math.round(data.lastY);
+    console.log(`{x: ${x} , y:${y}},`);
     return dispatch(setDeltaPosition({ team, id: player.id, x, y }));
   };
   const handleDoubleClick = () => setToggleInput(true);
