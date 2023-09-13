@@ -1,66 +1,69 @@
 .field-container {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    z-index: -1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  z-index: -1;
 }
 .d-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.field-aside{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
+.field-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
 }
-.field-one, .field-two, .field-three {
-    width: 70vh;
-    height: 90vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+.field-one,
+.field-two,
+.field-three {
+  width: 70vh;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .field-one {
-    background-image: url("../../../assets/img/pitch1.webp");
+  background-image: url("../../../assets/img/pitch1.webp");
 }
 .field-two {
-    background-image: url("../../../assets/img/pitch2.webp");
+  background-image: url("../../../assets/img/pitch2.webp");
 }
 .field-three {
-    background-image: url("../../../assets/img/pitch3.webp");
+  background-image: url("../../../assets/img/pitch3.webp");
 }
 
 .bench {
-    height: 444px;
-    width: 120px;
-    margin-left: 50px;
-    background-image: url("../../../assets/img/bench2.webp");
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: grid;
-    grid-template-columns: repeat(2, 70px);
+  height: 444px;
+  width: 120px;
+  margin-left: 50px;
+  background-image: url("../../../assets/img/bench2.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: grid;
+  grid-template-columns: repeat(2, 70px);
 }
 .bench-local {
-    background-image: url("../../../assets/img/bench1.webp");
-    margin-left: 0;
-    margin-right: 50px;
+  background-image: url("../../../assets/img/bench1.webp");
+  margin-left: 0;
+  margin-right: 50px;
 }
 .formation {
-    font-family: 'Permanent Marker', cursive;
-    color: white;
-    font-size: 2rem;
-    position: absolute;
-    margin: 0;
-    user-select: none;
-    text-shadow: 1px 2px black,2px 7px 3px black;
+  font-family: "Permanent Marker", cursive;
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  margin: 0;
+  user-select: none;
+  text-shadow: 1px 2px black, 2px 7px 3px black;
+  width: 100%;
+  text-align: center;
 }
 .formation-local {
-    bottom: -100px;
-    right: 55px;
+  bottom: -100px;
+  /* right: 0px; */
 }
 .formation-visit {
-    top: -100px;
-    left: 50px;
+  top: -100px;
 }
