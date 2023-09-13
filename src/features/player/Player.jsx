@@ -13,7 +13,7 @@ function Player({ player, color, team }) {
   const [toggleInput, setToggleInput] = useState(false);
   const [drag, setOnDrag] = useState(false);
 
-  const handleOnStart = (e, data) => {
+  const handleOnStop = (e, data) => {
     const x = Math.round(data.lastX);
     const y = Math.round(data.lastY);
     //console.log(`{x:${x} , y:${y}},`);
@@ -46,9 +46,11 @@ function Player({ player, color, team }) {
     <Draggable
       nodeRef={nodeRef}
       positionOffset={{ x: player.position.x, y: player.position.y }}
-      onStart={handleOnStart}
       onDrag={handleOnDrag}
-      onStop={() => setOnDrag(false)}
+      onStop={(e, data) => {
+        handleOnStop(e, data);
+        setOnDrag(false);
+      }}
     >
       <div
         ref={nodeRef}
