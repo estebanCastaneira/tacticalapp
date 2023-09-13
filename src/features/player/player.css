@@ -1,70 +1,95 @@
 .player-container {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   user-select: none;
-   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  margin-bottom: 10px;
 }
-.player-container:hover {
-    cursor: pointer;
+.playerCH:hover {
+  cursor: grab;
 }
-.player-container p, .player-input {
-    margin: 0;
-    color: rgb(255, 255, 255);
-    user-select: none;
-    text-shadow: 1px 2px black,2px 7px 3px black;
-    -webkit-text-stroke-width: .2px;
-    -webkit-text-stroke-color: black;
-    width: max-content;
+.drag {
+  cursor: grabbing;
+}
+.player-container p,
+.player-input {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  user-select: none;
+  text-shadow: 1px 2px black, 2px 7px 3px black;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: black;
+  width: max-content;
 }
 .player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border: solid 2px black;
-    border-radius: 50%;
-    box-shadow: 2px 7px 10px black;
-    color: white;
-    text-shadow: 1px 2px black;
-    text-align: center;
-    font-size: 24px;
-    font-family: 'Permanent Marker', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: solid 2px black;
+  border-radius: 50%;
+  box-shadow: 2px 7px 10px black;
+  color: white;
+  text-shadow: 1px 2px black;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Permanent Marker", cursive;
 }
 @keyframes shining {
-    0% {color: white;}
-    10%{color: rgb(243, 243, 152);}
-    20%{color: rgb(239, 239, 90);}
-    30%{color: rgb(247, 247, 88);}
-    40%{color: rgb(243, 243, 63);}
-    50%{color: rgb(244, 244, 39);}
-    60%{color: rgb(243, 243, 63);}
-    70%{color: rgb(247, 247, 88);}
-    80%{color: rgb(239, 239, 90);}
-    90%{color: rgb(243, 243, 152);}
-    100%{color: white;}
+  0% {
+    color: white;
+  }
+  10% {
+    color: rgb(243, 243, 152);
+  }
+  20% {
+    color: rgb(239, 239, 90);
+  }
+  30% {
+    color: rgb(247, 247, 88);
+  }
+  40% {
+    color: rgb(243, 243, 63);
+  }
+  50% {
+    color: rgb(244, 244, 39);
+  }
+  60% {
+    color: rgb(243, 243, 63);
+  }
+  70% {
+    color: rgb(247, 247, 88);
+  }
+  80% {
+    color: rgb(239, 239, 90);
+  }
+  90% {
+    color: rgb(243, 243, 152);
+  }
+  100% {
+    color: white;
+  }
 }
 .player-input {
-    position: relative;
-    animation: shining 3s ease-in infinite;
-    text-align: center;
-    background-color: transparent;
-    font-family: inherit;
-    border: none;
-    font-size: 16px;
-    outline: none;
+  animation: shining 1.5s ease-in infinite;
+  text-align: center;
+  background-color: transparent;
+  width: 100%;
+  font-family: inherit;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+  -webkit-appearance: none;
+  margin: 0;
+}
 input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-    font-size: 24px;
-  }
-
-
+  -moz-appearance: textfield;
+  appearance: textfield;
+  font-size: 24px;
+}

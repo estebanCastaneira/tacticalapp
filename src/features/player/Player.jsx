@@ -11,14 +11,17 @@ function Player({ player, color, team }) {
   const [name, setName] = useState(player.name);
   const [number, setNumber] = useState(player.number);
   const [toggleInput, setToggleInput] = useState(false);
+  const [drag, setOnDrag] = useState(false);
 
-  const handleOnStop = (e, data) => {
+  const handleOnStart = (e, data) => {
     const x = Math.round(data.lastX);
     const y = Math.round(data.lastY);
-    console.log(`{x: ${x} , y:${y}},`);
+    //console.log(`{x:${x} , y:${y}},`);
+
     return dispatch(setDeltaPosition({ team, id: player.id, x, y }));
   };
   const handleDoubleClick = () => setToggleInput(true);
+  const handleOnDrag = () => setOnDrag(true);
 
   const handleOnChangeName = (content) => {
     setName(content);
@@ -43,11 +46,13 @@ function Player({ player, color, team }) {
     <Draggable
       nodeRef={nodeRef}
       positionOffset={{ x: player.position.x, y: player.position.y }}
-      onStop={handleOnStop}
+      onStart={handleOnStart}
+      onDrag={handleOnDrag}
+      onStop={() => setOnDrag(false)}
     >
       <div
         ref={nodeRef}
-        className="player-container"
+        className={`player-container ${drag ? "drag" : "playerCH"}`}
         onDoubleClick={(e) => {
           handleDoubleClick(e.target.textContent);
         }}
@@ -59,9 +64,7 @@ function Player({ player, color, team }) {
               className="player-input"
               type="number"
               value={number}
-              onChange={(e) =>
-                e.target.value && handleOnChangeNumber(e.target.value)
-              }
+              onChange={(e) => handleOnChangeNumber(e.target.value)}
               onKeyDown={(e) => handleOnKeyDown(e.key)}
             />
           )}

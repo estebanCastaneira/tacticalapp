@@ -1,34 +1,36 @@
 nav {
-    background-color: antiquewhite;
-    filter: blur(100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
+  background-color: #373635;
+  filter: blur(100%);
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+label {
+  color: white;
 }
 .drop-down {
-    width: 40px;
-    height: 40px;
-    background-image: url("../../../assets/icons/burguerMenu.png");
-    background-size: cover;
-    filter: brightness(90%);
-    z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../assets/icons/burguerMenu.png");
+  background-size: cover;
+  filter: brightness(90%);
+  z-index: 10;
 }
 .drop-down:hover {
-    cursor: pointer;
-    filter: brightness(100%);
+  cursor: pointer;
+  filter: brightness(100%);
 }
 .drop-down:active {
-    filter: brightness(100%);
+  filter: brightness(100%);
 }
 .display-none {
-    display: none;
+  display: none;
 }
 .drop-down-colorpicker {
-    display: block;
-    position: relative;
-    width: 100%;
-    top: 37px;
-    right: 280px;
-    transform: translateZ(2);
+  display: block;
+  position: relative;
+  width: 100%;
+  top: 40px;
+  right: 280px;
+  transform: translateZ(2);
 }

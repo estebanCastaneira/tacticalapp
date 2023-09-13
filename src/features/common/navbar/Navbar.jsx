@@ -12,7 +12,7 @@ function Navbar({ clicked, setClicked }) {
         <TeamSelector />
         <Formation />
         <div className="d-flex">
-          <p>Select color of players: </p>
+          <label>Select color of players: </label>
           <div className="drop-down" onClick={() => setClicked(!clicked)}>
             <div
               className={clicked ? "drop-down-colorpicker" : "display-none"}
