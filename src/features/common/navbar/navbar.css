@@ -2,6 +2,7 @@ nav {
   background-color: #373635;
   filter: blur(100%);
   display: flex;
+  justify-content: space-evenly;
   gap: 20px;
   padding: 10px;
 }
