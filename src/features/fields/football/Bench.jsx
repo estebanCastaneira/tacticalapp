@@ -4,7 +4,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 
 function Bench({ local }) {
   const color = useSelector((state) =>
-    local ? state.teams.teamA.color : state.teams.teamB.color
+    local ? state.teams.teamA.color.hex : state.teams.teamB.color.hex
   );
   const players = useSelector((state) =>
     local ? state.teams.teamA.players : state.teams.teamB.players
