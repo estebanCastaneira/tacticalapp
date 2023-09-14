@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setFormation } from "../../redux/teamsSlice";
+import {
+  setAnimate,
+  setFormation,
+  setPrevPosition,
+} from "../../redux/teamsSlice";
 import Select from "react-select";
 
 function Formation() {
@@ -10,7 +14,13 @@ function Formation() {
       : state.teams.teamB.formation
   );
   const dispatch = useDispatch();
-  const handleFormation = (e) => dispatch(setFormation(e.value));
+  const handleFormation = (e) => {
+    return (
+      dispatch(setPrevPosition()),
+      dispatch(setAnimate(true)),
+      dispatch(setFormation(e.value))
+    );
+  };
 
   const options = [
     { value: "none", label: "None" },

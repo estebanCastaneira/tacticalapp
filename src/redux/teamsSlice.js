@@ -8,6 +8,7 @@ const teamsSlice = createSlice({
   initialState: {
     fieldSelected: "1",
     teamSelected: "teamA",
+    animate: false,
     teamA: {
       color: {
         hex: "#0000ff",
@@ -28,6 +29,9 @@ const teamsSlice = createSlice({
     },
   },
   reducers: {
+    setAnimate(state, action) {
+      state.animate = action.payload;
+    },
     setField(state, action) {
       state.fieldSelected = action.payload;
     },
@@ -64,14 +68,14 @@ const teamsSlice = createSlice({
       const formationA = formationsA[action.payload];
       const formationB = formationsB[action.payload];
       if (team === "teamA") {
-        (state.teamA.formation = action.payload),
-          state.teamA.players.map(
-            (player) =>
-              (player.position = {
-                x: formationA[player.id - 1].x - player.deltaP.x,
-                y: formationA[player.id - 1].y - player.deltaP.y,
-              })
-          );
+        state.teamA.formation = action.payload;
+        state.teamA.players.map(
+          (player) =>
+            (player.position = {
+              x: formationA[player.id - 1].x - player.deltaP.x,
+              y: formationA[player.id - 1].y - player.deltaP.y,
+            })
+        );
       } else {
         state.teamB.formation = action.payload;
         state.teamB.players.map(
@@ -104,16 +108,38 @@ const teamsSlice = createSlice({
         );
       }
     },
+    setPrevPosition(state, action) {
+      const team = state.teamSelected;
+      if (team === "teamA") {
+        state.teamA.players.map(
+          (player) =>
+            (player.prevPosition = {
+              x: player.position.x,
+              y: player.position.y,
+            })
+        );
+      } else {
+        state.teamB.players.map(
+          (player) =>
+            (player.prevPosition = {
+              x: player.position.x,
+              y: player.position.y,
+            })
+        );
+      }
+    },
   },
 });
 
 const { actions, reducer } = teamsSlice;
 export const {
-  setPlayer,
+  setAnimate,
+  setField,
   setTeam,
+  setPlayer,
   setColorOfPlayers,
   setFormation,
-  setField,
   setDeltaPosition,
+  setPrevPosition,
 } = actions;
 export default reducer;
