@@ -11,7 +11,7 @@ import {
 } from "../../redux/teamsSlice";
 
 function Player({ player, color, team }) {
-  const animate = useSelector((state) => state.teams.animate);
+  const teamSelected = useSelector((state) => state.teams.teamSelected); // que fachemo?? TODO
   const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
   const [name, setName] = useState(player.name);
@@ -59,22 +59,6 @@ function Player({ player, color, team }) {
   }
 `;
 
-  useEffect(() => {
-    const element = document.getElementById(`${player.id}`);
-    element.style.animation = "movePlayer 1s ease forwards";
-    setKeyFrame(keyframeAnimation);
-    const handleAnimationEnd = () => {
-      element.style.animation = "";
-    };
-
-    element.addEventListener("animationend", handleAnimationEnd);
-
-    return () => {
-      element.removeEventListener("animationend", handleAnimationEnd);
-      setAnimate(false);
-    };
-  }, [player.position]);
-  player.id === 8 && console.log(keyFrame);
   return (
     <Draggable
       nodeRef={nodeRef}
@@ -91,7 +75,7 @@ function Player({ player, color, team }) {
         onDoubleClick={(e) => {
           handleDoubleClick(e.target.textContent);
         }}
-        id={player.id}
+        id={team === "teamA" ? player.id : player.id + 11}
       >
         <style>{keyframeAnimation}</style>
         <div className="player" style={{ backgroundColor: `${color}` }}>
