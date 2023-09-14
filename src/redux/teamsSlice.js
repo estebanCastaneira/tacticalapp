@@ -15,7 +15,7 @@ const teamsSlice = createSlice({
         rgb: { a: undefined, b: 0, g: 0, r: 255 },
         hsv: { a: undefined, h: 0, s: 100, v: 100 },
       },
-      players: initalPlayers.a,
+      players: initalPlayers,
       formation: null,
     },
     teamB: {
@@ -24,7 +24,7 @@ const teamsSlice = createSlice({
         rgb: { a: undefined, b: 255, g: 0, r: 0 },
         hsv: { a: undefined, h: 240, s: 100, v: 100 },
       },
-      players: initalPlayers.b,
+      players: initalPlayers,
       formation: null,
     },
   },
