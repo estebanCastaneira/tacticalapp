@@ -25,9 +25,9 @@ function FieldSelector() {
       </div>
     );
   };
-  const handleChange = (o) => {
-    setSelectedOption(o);
-    dispatch(setField(o.value));
+  const handleChange = (e) => {
+    setSelectedOption(e);
+    dispatch(setField(e.value));
   };
   return (
     <div className="select">

@@ -11,21 +11,22 @@
   align-items: center;
   gap: 10px;
 }
+.css-b62m3t-container {
+  min-width: 210px;
+}
 .option {
-  width: 140px;
+  width: 150px;
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: -1;
 }
 .option-image {
-  width: 22px;
+  width: 20px;
   margin: 0;
   rotate: 90deg;
-  margin-right: 30px;
+  margin: 0 20px;
 }
 .option-text {
   margin: 0;
-}
-.w150px {
-  width: 150px;
 }

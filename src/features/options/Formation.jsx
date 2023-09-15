@@ -48,7 +48,6 @@ function Formation() {
             : "None"
         }
         onChange={handleFormation}
-        className="w150px react-select-container"
       />
     </div>
   );
