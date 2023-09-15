@@ -1,7 +1,7 @@
-import "./player.css";
 import { useState, useEffect } from "react";
-import Draggable from "react-draggable";
 import React from "react";
+import Draggable from "react-draggable";
+import { useSpring, animated } from "@react-spring/web";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setAnimate,
@@ -9,8 +9,10 @@ import {
   setDeltaPosition,
   setPrevPosition,
 } from "../../redux/teamsSlice";
+import "./player.css";
 
 function Player({ player, color, team }) {
+  const animate = useSelector((state) => state.teams.animate);
   const teamSelected = useSelector((state) => state.teams.teamSelected); // que fachemo?? TODO
   const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
@@ -18,17 +20,22 @@ function Player({ player, color, team }) {
   const [number, setNumber] = useState(player.number);
   const [toggleInput, setToggleInput] = useState(false);
   const [drag, setOnDrag] = useState(false);
-  const [keyFrame, setKeyFrame] = useState("");
 
   const handleOnStop = (e, data) => {
     const x = Math.round(data.lastX);
     const y = Math.round(data.lastY);
-    //console.log(`{x:${x} , y:${y}},`);
+    console.log(`position: x:${player.position.x}, y:${player.position.y}`);
+    console.log(`deltaP: x:${player.deltaP.x}, y:${player.deltaP.y}`);
+    console.log(
+      `prevPosition: x:${player.prevPosition.x}, y:${player.prevPosition.y}`
+    );
     return dispatch(setDeltaPosition({ team, id: player.id, x, y }));
   };
-  const handleDoubleClick = () => setToggleInput(true);
-  const handleOnDrag = () => setOnDrag(true);
+  const handleOnDrag = () => {
+    setOnDrag(true);
+  };
 
+  const handleDoubleClick = () => setToggleInput(true);
   const handleOnChangeName = (content) => {
     setName(content);
   };
@@ -48,60 +55,72 @@ function Player({ player, color, team }) {
         })
       ));
   };
-  const keyframeAnimation = `
-  @keyframes movePlayer {
-    from {
-      transform: translate(0,0);
+
+  const [springs, api] = useSpring(() => ({
+    from: {
+      x: player.prevPosition.x + player.deltaP.x,
+      y: player.prevPosition.y + player.deltaP.y,
+    },
+  }));
+  useEffect(() => {
+    if (animate) {
+      api.start({
+        from: {
+          x: player.prevPosition.x,
+          y: player.prevPosition.y,
+        },
+        to: {
+          x: player.position.x,
+          y: player.position.y,
+        },
+      });
+      setAnimate(false);
     }
-   to {
-      transform: translate(${player.position.x}, ${player.position.y});
-    }
-  }
-`;
+  }, [player.position]);
 
   return (
-    <Draggable
-      nodeRef={nodeRef}
-      positionOffset={{ x: player.position.x, y: player.position.y }}
-      onDrag={handleOnDrag}
-      onStop={(e, data) => {
-        handleOnStop(e, data);
-        setOnDrag(false);
-      }}
-    >
-      <div
-        ref={nodeRef}
-        className={`player-container ${drag ? "drag" : "playerCH"}`}
-        onDoubleClick={(e) => {
-          handleDoubleClick(e.target.textContent);
+    <animated.div style={{ ...springs }}>
+      <Draggable
+        nodeRef={nodeRef}
+        onDrag={handleOnDrag}
+        onStop={(e, data) => {
+          handleOnStop(e, data);
+          setOnDrag(false);
         }}
-        id={team === "teamA" ? player.id : player.id + 11}
       >
-        <style>{keyframeAnimation}</style>
-        <div className="player" style={{ backgroundColor: `${color}` }}>
-          {!toggleInput && <p>{number}</p>}
+        <div
+          ref={nodeRef}
+          className={`player-container ${drag ? "drag" : "playerCH"}`}
+          onDoubleClick={(e) => {
+            handleDoubleClick(e.target.textContent);
+          }}
+          id={team === "teamA" ? player.id : player.id + 11}
+        >
+          <div className="player" style={{ backgroundColor: `${color}` }}>
+            {!toggleInput && <p>{number}</p>}
+            {toggleInput && (
+              <input
+                className="player-input"
+                type="number"
+                value={number}
+                onChange={(e) => handleOnChangeNumber(e.target.value)}
+                onKeyDown={(e) => handleOnKeyDown(e.key)}
+              />
+            )}
+          </div>
+          {!toggleInput && <p>{name}</p>}
           {toggleInput && (
             <input
               className="player-input"
-              type="number"
-              value={number}
-              onChange={(e) => handleOnChangeNumber(e.target.value)}
+              type="text"
+              value={name}
+              onChange={(e) => handleOnChangeName(e.target.value)}
               onKeyDown={(e) => handleOnKeyDown(e.key)}
             />
           )}
         </div>
-        {!toggleInput && <p>{name}</p>}
-        {toggleInput && (
-          <input
-            className="player-input"
-            type="text"
-            value={name}
-            onChange={(e) => handleOnChangeName(e.target.value)}
-            onKeyDown={(e) => handleOnKeyDown(e.key)}
-          />
-        )}
-      </div>
-    </Draggable>
+      </Draggable>
+    </animated.div>
   );
 }
 

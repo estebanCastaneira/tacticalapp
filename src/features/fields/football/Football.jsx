@@ -18,7 +18,6 @@ function Football() {
                 formTeamA.split("").join("-")}
             </p>
           </div>
-
           <div
             className={
               field === "1"
@@ -30,7 +29,6 @@ function Football() {
                 : ""
             }
           ></div>
-
           <div className="field-aside">
             <p className="formation formation-visit">
               {formTeamB &&
