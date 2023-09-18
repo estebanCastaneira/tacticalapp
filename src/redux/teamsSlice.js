@@ -128,6 +128,18 @@ const teamsSlice = createSlice({
         );
       }
     },
+    restartPoistions(state, action) {
+      state.teamA.players.map((player) => {
+        player.prevPosition = { x: 0, y: 0 };
+        player.deltaP = { x: 0, y: 0 };
+        return player;
+      });
+      state.teamB.players.map((player) => {
+        player.prevPosition = { x: 0, y: 0 };
+        player.deltaP = { x: 0, y: 0 };
+        return player;
+      });
+    },
   },
 });
 
@@ -141,5 +153,6 @@ export const {
   setFormation,
   setDeltaPosition,
   setPrevPosition,
+  restartPoistions,
 } = actions;
 export default reducer;
