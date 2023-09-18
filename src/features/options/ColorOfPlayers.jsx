@@ -26,7 +26,7 @@ function ColorOfPLayers() {
       <ColorPicker
         width={300}
         height={150}
-        color={color}
+        color={colorO}
         onChange={(color) => {
           handleSetColor(color);
         }}

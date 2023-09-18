@@ -2,14 +2,14 @@ import "./football.css";
 import Bench from "./Bench";
 import { useSelector } from "react-redux";
 
-function Football() {
+function Football({ about }) {
   const field = useSelector((state) => state.teams.fieldSelected);
   const formTeamA = useSelector((state) => state.teams.teamA.formation);
   const formTeamB = useSelector((state) => state.teams.teamB.formation);
   return (
     <>
-      <div className="field-container">
-        <div className="d-flex flex-column">
+      <div className={`field-container ${about && "blur"}`}>
+        <div className="d-flex">
           <div className="field-aside">
             <Bench local={true} />
             <p className="formation formation-local">

@@ -4,6 +4,9 @@
   padding: 0px;
   z-index: -1;
 }
+.blur {
+  filter: blur(20px);
+}
 .d-flex {
   display: flex;
   align-items: center;

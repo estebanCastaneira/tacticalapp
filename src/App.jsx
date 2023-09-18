@@ -1,16 +1,19 @@
 import Navbar from "./features/common/navbar/Navbar";
 import Football from "./features/fields/football/Football";
+import About from "./features/common/about/About";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { restartPoistions } from "./redux/teamsSlice";
 function App() {
+  const about = useSelector((state) => state.teams.about);
   const [clicked, setClicked] = useState(false);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       dispatch(restartPoistions());
-      // event.preventDefault();
-      // event.returnValue = "Seguro que quieres reiniciar la app?"; // Algunos navegadores pueden requerir un valor no vacío aquí.
+      event.preventDefault();
+      event.returnValue = "Are you sure?";
     };
     window.addEventListener("beforeunload", handleBeforeUnload);
 
@@ -18,10 +21,14 @@ function App() {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, [window]);
+
   return (
     <main onClick={() => clicked && setClicked(false)}>
       <Navbar clicked={clicked} setClicked={setClicked} />
-      <Football />
+      <div className="relative">
+        {about && <About />}
+        <Football about={about} />
+      </div>
     </main>
   );
 }

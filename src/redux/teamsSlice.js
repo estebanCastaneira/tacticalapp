@@ -9,6 +9,7 @@ const teamsSlice = createSlice({
     fieldSelected: "1",
     teamSelected: "teamA",
     animate: false,
+    about: false,
     teamA: {
       color: {
         hex: "#0000ff",
@@ -144,6 +145,9 @@ const teamsSlice = createSlice({
       });
       state.teamB.formation = null;
     },
+    setAbout(state, action) {
+      state.about = !state.about;
+    },
   },
 });
 
@@ -158,5 +162,6 @@ export const {
   setDeltaPosition,
   setPrevPosition,
   restartPoistions,
+  setAbout,
 } = actions;
 export default reducer;

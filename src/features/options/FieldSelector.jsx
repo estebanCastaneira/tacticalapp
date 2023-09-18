@@ -1,12 +1,13 @@
 import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { setField } from "../../redux/teamsSlice";
+import { setAbout, setField } from "../../redux/teamsSlice";
 import field1 from "../../assets/img/pitch1.webp";
 import field2 from "../../assets/img/pitch2.webp";
 import field3 from "../../assets/img/pitch3.webp";
-function FieldSelector() {
+function FieldSelector({ about }) {
   const dispatch = useDispatch();
+
   const [selectedOption, setSelectedOption] = useState({
     value: "1",
     label: "Field #1",
@@ -30,8 +31,8 @@ function FieldSelector() {
     dispatch(setField(e.value));
   };
   return (
-    <div className="select">
-      <label>Select a field:</label>
+    <div className="select" onClick={() => about && dispatch(setAbout())}>
+      <label>Select Field:</label>
       <Select
         defaultValue={selectedOption}
         options={options}

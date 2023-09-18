@@ -1,16 +1,25 @@
 :root {
-    --grass: #6C885F;
+  --grass: #6c885f;
 }
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 0;
-    background-color: var(--grass);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0;
+  background-color: var(--grass);
 }
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-    transition-duration: 500ms;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  transition-duration: 500ms;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+img {
+  width: 100%;
+}
+.relative {
+  position: relative;
+}

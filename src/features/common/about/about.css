@@ -1,0 +1,30 @@
+.about {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(230, 119, 35, 0.317);
+  z-index: 10;
+  height: 100vh;
+}
+.about-container {
+  margin: 0 auto;
+
+  width: 60%;
+}
+.about h1 {
+  margin: 4rem;
+}
+.about p,
+.about small {
+  text-align: start;
+  line-height: 2rem;
+}
+.about span {
+  text-transform: uppercase;
+  color: rgb(27, 27, 26);
+  font-weight: bold;
+}

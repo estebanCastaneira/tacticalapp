@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setAbout,
   setAnimate,
   setFormation,
   setPrevPosition,
 } from "../../redux/teamsSlice";
 import Select from "react-select";
 
-function Formation() {
+function Formation({ about }) {
   const teamSelected = useSelector((state) => state.teams.teamSelected);
   const formation = useSelector((state) =>
     teamSelected === "teamA"
@@ -33,8 +34,8 @@ function Formation() {
     { value: "541", label: "5-4-1" },
   ];
   return (
-    <div className="select">
-      <label>Select the Squad Formation: </label>
+    <div className="select" onClick={() => about && dispatch(setAbout())}>
+      <label>Select The Squad Formation: </label>
       <Select
         options={options}
         placeholder={

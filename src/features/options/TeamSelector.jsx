@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { setTeam } from "../../redux/teamsSlice";
+import { setTeam, setAbout } from "../../redux/teamsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 
-function TeamSelector() {
+function TeamSelector({ about }) {
   const dispatch = useDispatch();
   const teamSelected = useSelector((state) => state.teams.teamSelected);
   const options = [
@@ -14,8 +13,8 @@ function TeamSelector() {
     dispatch(setTeam(o.value));
   };
   return (
-    <div className="select">
-      <label>Select a Team:</label>
+    <div className="select" onClick={() => about && dispatch(setAbout())}>
+      <label>Select Team:</label>
       <Select
         options={options}
         placeholder={teamSelected === "teamA" ? "Team A" : "Team B"}

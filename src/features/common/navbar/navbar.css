@@ -35,3 +35,22 @@ label {
   right: 280px;
   transform: translateZ(2);
 }
+.gap-2 {
+  gap: 2rem;
+}
+.questionmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 2rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid;
+  filter: brightness(90%);
+}
+.questionmark:hover {
+  cursor: pointer;
+  filter: brightness(110%);
+  scale: 1.1;
+}
