@@ -13,7 +13,6 @@ import "./player.css";
 
 function Player({ player, color, team }) {
   const animate = useSelector((state) => state.teams.animate);
-  const teamSelected = useSelector((state) => state.teams.teamSelected); // que fachemo?? TODO
   const nodeRef = React.useRef(null);
   const dispatch = useDispatch();
   const [name, setName] = useState(player.name);
@@ -24,11 +23,7 @@ function Player({ player, color, team }) {
   const handleOnStop = (e, data) => {
     const x = Math.round(data.lastX);
     const y = Math.round(data.lastY);
-    console.log(`position: x:${player.position.x}, y:${player.position.y}`);
-    console.log(`deltaP: x:${player.deltaP.x}, y:${player.deltaP.y}`);
-    console.log(
-      `prevPosition: x:${player.prevPosition.x}, y:${player.prevPosition.y}`
-    );
+
     return dispatch(setDeltaPosition({ team, id: player.id, x, y }));
   };
   const handleOnDrag = () => {

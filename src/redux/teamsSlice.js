@@ -39,7 +39,7 @@ const teamsSlice = createSlice({
       state.teamSelected = action.payload;
     },
     setPlayer(state, action) {
-      state.teamSelected === "teamA"
+      action.payload.team === "teamA"
         ? state.teamA.players.map((player) =>
             player.id !== action.payload.id
               ? player
@@ -130,15 +130,19 @@ const teamsSlice = createSlice({
     },
     restartPoistions(state, action) {
       state.teamA.players.map((player) => {
+        player.position = { x: 0, y: 0 };
         player.prevPosition = { x: 0, y: 0 };
         player.deltaP = { x: 0, y: 0 };
         return player;
       });
+      state.teamA.formation = null;
       state.teamB.players.map((player) => {
+        player.position = { x: 0, y: 0 };
         player.prevPosition = { x: 0, y: 0 };
         player.deltaP = { x: 0, y: 0 };
         return player;
       });
+      state.teamB.formation = null;
     },
   },
 });
