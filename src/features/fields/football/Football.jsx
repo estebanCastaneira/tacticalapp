@@ -8,7 +8,7 @@ function Football({ about }) {
   const formTeamB = useSelector((state) => state.teams.teamB.formation);
   return (
     <>
-      <div className={`field-container ${about && "blur"}`}>
+      <div className={`field-container ${about ? "blur" : ""}`}>
         <div className="d-flex">
           <div className="field-aside">
             <Bench local={true} />
@@ -28,6 +28,7 @@ function Football({ about }) {
                 ? "field-three"
                 : ""
             }
+            id="field"
           ></div>
           <div className="field-aside">
             <p className="formation formation-visit">

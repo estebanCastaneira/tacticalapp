@@ -30,8 +30,7 @@ const teamsSlice = createSlice({
               ? player
               : ((player.id = action.payload.id),
                 (player.number = action.payload.number),
-                (player.name = action.payload.name),
-                (player.position = action.payload.position))
+                (player.name = action.payload.name))
           );
     },
     setColorOfPlayers(state, action) {

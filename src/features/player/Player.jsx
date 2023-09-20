@@ -7,7 +7,6 @@ import {
   setAnimate,
   setPlayer,
   setDeltaPosition,
-  setPrevPosition,
 } from "../../redux/teamsSlice";
 import "./player.css";
 
