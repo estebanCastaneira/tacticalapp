@@ -15,9 +15,10 @@ function About() {
           Select a <span>color</span> team from the menu by clicking on it.
         </p>
         <p>
-          To change a <span>player's</span> name or number,
+          To change a <span>player's</span> name or number,{" "}
           <span>double-click</span> on it. While it <span>blinks</span> you will
-          be able to change it. Once you're finished, press <span>Enter</span>.
+          be able to <span>change it</span>. Once you're finished, press{" "}
+          <span>Enter</span>.
         </p>
 
         <small>
